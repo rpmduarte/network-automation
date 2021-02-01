@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 variable "project_name" {
   type             = string
 }
 
-=======
->>>>>>> cae4151d5dad65c4e928b046f3ca4c4235d75e3f
 variable "region_names" {
   type             = list(string)
 }

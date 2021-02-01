@@ -13,9 +13,7 @@ locals {
   instance_group_name  = "unmanaged-instance-group-us-central1"  
   backend_zone         = "us-central1-a"
   bucket_name          = "j5-org"
-<<<<<<< HEAD
-  ssl.policy           = "custom-ssl-policy"
-=======
   ssl_policy           = "custom-ssl-policy"
->>>>>>> cae4151d5dad65c4e928b046f3ca4c4235d75e3f
 }
+
+output l7lb_external_ip_address { value = google_compute_global_address.EXTERNAL_L7LB_IP_ADDRESS.*.address }

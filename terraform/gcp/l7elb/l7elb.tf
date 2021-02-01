@@ -5,13 +5,8 @@ resource "google_compute_global_address" "EXTERNAL_L7LB_IP_ADDRESS" {
 
 resource "google_compute_url_map" "URL_MAP" {
   name               = "urlmap"
-<<<<<<< HEAD
-  #default_service    = google_compute_backend_bucket.BACKEND_BUCKET.id
-  default_service    = google_compute_backend_service.BACKEND_SERVICE.id
-=======
-  default_service    = google_compute_backend_bucket.BACKEND_BUCKET.id
   #default_service    = google_compute_backend_service.BACKEND_SERVICE.id
->>>>>>> cae4151d5dad65c4e928b046f3ca4c4235d75e3f
+  default_service    = google_compute_backend_bucket.BACKEND_BUCKET.id
 }
 
 resource "google_compute_target_http_proxy" "TPROXY_HTTP" {
@@ -19,18 +14,6 @@ resource "google_compute_target_http_proxy" "TPROXY_HTTP" {
   url_map               = google_compute_url_map.URL_MAP.id
 }
 
-<<<<<<< HEAD
-# SSL Certs
-resource "google_compute_ssl_certificate" "SSL_CERT" {
-  count          = length(var.site_hostnames)
-  name           = replace(var.site_hostnames[count.index], ".", "-")
-  private_key    = file("~/automation/ssl_certs/${replace(var.site_hostnames[count.index], ".", "_")}.key")
-  certificate    = file("~/automation/ssl_certs/${replace(var.site_hostnames[count.index], ".", "_")}.cer")
-  provider       = google-beta
-}
-
-=======
->>>>>>> cae4151d5dad65c4e928b046f3ca4c4235d75e3f
 # Target proxies
 resource "google_compute_target_https_proxy" "TPROXY_HTTPS" {
   name                  = "target-proxy-https"
@@ -57,8 +40,3 @@ resource "google_compute_global_forwarding_rule" "FWD_RULE_HTTPS" {
   target                = google_compute_target_https_proxy.TPROXY_HTTPS.id
 }
 
-<<<<<<< HEAD
-output l7lb_external_ip_address { value = google_compute_global_address.EXTERNAL_L7LB_IP_ADDRESS.*.address }
-=======
-#output l7lb_external_ip_address { value = google_compute_global_address.EXTERNAL_L7LB_IP_ADDRESS.*.address }
->>>>>>> cae4151d5dad65c4e928b046f3ca4c4235d75e3f
