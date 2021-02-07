@@ -1,13 +1,13 @@
 
 # Create Lambda Function
 resource "aws_lambda_function" "LAMBDA_FUNCTION" {
-  filename         = local.filename
-  function_name    = local.function_name
+  filename         = var.zipfile_name
+  function_name    = var.function_name
   role		   = aws_iam_role.LAMBDA_ROLE.arn
-  handler          = local.handler
+  handler          = var.handler_name
   runtime          = local.runtime
   memory_size      = 128
-  description      = local.description
+  description      = var.lambda_description
 }
 
 # Create alias for live

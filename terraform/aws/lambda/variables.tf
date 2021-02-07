@@ -5,7 +5,7 @@ variable "lambda_name" {
 }
 variable "lambda_description" {
   type             = string
-  default          = var.lambda_name
+  default          = "Description goes here"
 }
 
 variable "region" {
@@ -37,7 +37,7 @@ variable "handler_name" {
 
 variable "zipfile_name" {
   type             = string
-  default          = "${var.lambda_name}.zip"
+  default          = "lambda.zip"
 }
 
 locals {
