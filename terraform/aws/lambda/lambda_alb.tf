@@ -43,7 +43,6 @@ resource aws_lambda_permission "LAMBDA_PERMISSION" {
 # Attach Lambda Function to Target Group
 resource "aws_lb_target_group_attachment" "TG_ATTACHMENT" {
   target_group_arn = aws_lb_target_group.LAMBDA_TG.arn
-  #target_id        = aws_lambda_function.LAMBDA_FUNCTION.arn
   target_id        = aws_lambda_alias.LAMBDA_ALIAS.arn
   depends_on       = [ aws_lambda_permission.LAMBDA_PERMISSION, aws_lambda_alias.LAMBDA_ALIAS ]
 }
@@ -54,7 +53,7 @@ resource "aws_lb" "LAMBDA_ALB" {
   internal                   = false
   load_balancer_type         = "application"
   security_groups            = [aws_security_group.ALB_SECURITY_GROUP.id]
-  subnets                    = local.subnets
+  subnets                    = var.subnet_ids
 }
 
 # Create HTTP & HTTPS listeners for ALB
@@ -64,7 +63,7 @@ resource "aws_lb_listener" "ALB_LISTENER_HTTP" {
   protocol                   = "HTTP"
   # Redirect 80 -> 443
   default_action {
-    target_group_arn         = aws_lb_target_group.LB_TG_LEGACY.arn
+    target_group_arn         = aws_lb_target_group.LAMBDA_TG.arn
     type                     = "forward"
   }
 }
@@ -82,7 +81,6 @@ resource "aws_lb_listener" "ALB_LISTENER_HTTPS" {
 
 # Attach additional certs, if given
 resource "aws_lb_listener_certificate" "ALB_LISTENER_CERT" {
-  listener_arn               = aws_lb_listener.LB_LISTENER_HTTPS.arn
-  #certificate_arn            = aws_acm_certificate.ACM_CERT_LEGACY_YSI.arn
+  listener_arn               = aws_lb_listener.ALB_LISTENER_HTTPS.arn
   certificate_arn            = var.cert_arn
 }

@@ -1,7 +1,7 @@
 
 # Create Lambda Function
 resource "aws_lambda_function" "LAMBDA_FUNCTION" {
-  filename         = local_filename
+  filename         = local.filename
   function_name    = local.function_name
   role		   = aws_iam_role.LAMBDA_ROLE.arn
   handler          = local.handler

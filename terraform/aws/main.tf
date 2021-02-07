@@ -1,16 +1,14 @@
 provider "aws" {
   profile          = "default"
-  region           = "us-east-1"
+  region           = "us-east-2"
 }
 
 module "lambda" {
   source              = "./lambda"
-  region_names        = var.region_names
 }
 
 module "cloudfront" {
   source              = "./cloudfront"
-  region_names        = var.region_names
 }
 
 

@@ -25,8 +25,11 @@ variable "price_class" {
   default          = "PriceClass_100"
 }
 variable "ttls" {
-  type             = list(num)
+  type             = list(number)
   default          = [60,3600,86400]
+}
+variable "dns_zone_id" {
+  type             = string
 }
 
 locals {
