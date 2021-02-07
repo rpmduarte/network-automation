@@ -1,7 +1,13 @@
 variable "lambda_name" {
   type             = string
   default          = "mylambda"
+
 }
+variable "lambda_description" {
+  type             = string
+  default          = var.lambda_name
+}
+
 variable "region" {
   type             = string
   default          = "us-east-2"
@@ -12,18 +18,29 @@ variable "vpc_id" {
 }
 variable "subnet_ids" {
   type             = list(string)
-  default          = ["x", "y"]
+  default          = ["subnet-08b00cde0eba087a5", "subnet-05a56f3ab6fb3423e", "subnet-037eee932911f0f5e"]
 }
 variable "cert_arn" {
   type             = string
-  default          = "asdfkjasdflkjsd"
+  default          = "arn:aws:acm:us-east-2:694058713236:certificate/2774acd1-fa08-4d92-ab21-d670dece8232"
+}
+
+variable "function_name" {
+  type             = string
+  default          = "lambda_function"
+}
+
+variable "handler_name" {
+  type             = string
+  default          = "lambda_handler"
+}
+
+variable "zipfile_name" {
+  type             = string
+  default          = "${var.lambda_name}.zip"
 }
 
 locals {
-  filename         = "filename.zip"
-  function_name    = "lambda_function"
-  handler          = "lambda_handler"
   runtime          = "python3.8"
-  description      = "Description"
   ssl_policy_name  = "TLSv1.2_2019"
 }
