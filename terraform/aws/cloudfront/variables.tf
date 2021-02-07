@@ -1,8 +1,4 @@
 
-variable "price_class" {
-  type             = string
-  default          = "PriceClass_100"
-}
 
 variable "short_name" {
   type             = string
@@ -22,13 +18,21 @@ variable "s3_bucket_name" {
 }
 variable "s3_site_path" {
   type             = string
-  description      = "Path inside bucket for website" 
+  description      = "Path in bucket for website root" 
+}
+variable "price_class" {
+  type             = string
+  default          = "PriceClass_100"
+}
+variable "ttls" {
+  type             = list(num)
+  default          = [60,3600,86400]
 }
 
 locals {
-  min_ttl                = 60
-  default_ttl            = 1440
-  max_ttl                = 86400
+  min_ttl                = var.ttls[0]
+  default_ttl            = var.ttls[1]
+  max_ttl                = var.ttls[2]
   country_blacklist      = [ "IR", "KP" ]
   security_policy        = "TLSv1.2_2019"
 }
