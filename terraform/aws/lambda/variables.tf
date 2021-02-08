@@ -42,5 +42,5 @@ variable "zipfile_name" {
 
 locals {
   runtime          = "python3.8"
-  ssl_policy_name  = "TLSv1.2_2019"
+  ssl_policy_name  = "ELBSecurityPolicy-FS-2018-06"
 }
