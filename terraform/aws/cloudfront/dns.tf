@@ -4,5 +4,5 @@ resource "aws_route53_record" "DNS_CLOUDFRONT" {
   name            = var.short_name
   type            = "CNAME"
   records         = [ aws_cloudfront_distribution.CLOUDFRONT_DS.domain_name ]
-  ttl             = 3600
+  ttl             = local.dns_ttl
 }

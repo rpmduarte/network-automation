@@ -38,4 +38,5 @@ locals {
   max_ttl                = var.ttls[2]
   country_blacklist      = [ "IR", "KP" ]
   security_policy        = "TLSv1.2_2019"
+  dns_ttl                = 300
 }
