@@ -76,6 +76,3 @@ variable "peer1_adv_metric" {
   default = 1
 }
 
-output vpn_tun0_psk { value = random_password.PEER0_PSK.*.result }
-output vpn_tun1_psk { value = random_password.PEER1_PSK.*.result }
-

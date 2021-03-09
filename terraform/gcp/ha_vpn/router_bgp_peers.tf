@@ -1,4 +1,3 @@
-
 # Create BGP Sessions
 resource "google_compute_router_peer" "ROUTER_VPN_BGP0" {
   name                            = "${var.region}-${var.peer_gateway_name}-bgp0"
