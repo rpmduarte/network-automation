@@ -12,5 +12,4 @@ provider "aws" {
   region           = "us-east-2"
 }
 
-
-
+output cloudfront_dns_name { value = aws_cloudfront_distribution.CLOUDFRONT_DS.*.domain_name }
