@@ -19,6 +19,7 @@ variable "s3_bucket_name" {
 variable "s3_site_path" {
   type             = string
   description      = "Path in bucket for website root" 
+  default          = ""
 }
 variable "root_page" {
   type             = string
