@@ -17,7 +17,7 @@ resource "aws_cloudfront_distribution" "CLOUDFRONT_DS" {
   is_ipv6_enabled            = false
   price_class                = var.price_class
   aliases                    = var.site_hostnames
-  default_root_object        = "index.html"
+  default_root_object        = var.root_page
   custom_error_response      {
     error_code               = 404
     response_code            = 404

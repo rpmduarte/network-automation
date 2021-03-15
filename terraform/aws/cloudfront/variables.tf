@@ -20,6 +20,11 @@ variable "s3_site_path" {
   type             = string
   description      = "Path in bucket for website root" 
 }
+variable "root_page" {
+  type             = string
+  description      = "Root file (i.e. index.html)" 
+  default          = "index.html"
+}
 variable "price_class" {
   type             = string
   default          = "PriceClass_100"
