@@ -13,3 +13,4 @@ provider "aws" {
 }
 
 output cloudfront_dns_name { value = aws_cloudfront_distribution.CLOUDFRONT_DS.*.domain_name }
+output cloudfront_http_version { value = aws_cloudfront_distribution.CLOUDFRONT_DS.*.http_version }
