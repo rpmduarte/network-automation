@@ -32,7 +32,7 @@ variable "price_class" {
 }
 variable "ttls" {
   type             = list(number)
-  default          = [60,14400,43200]
+  default          = [60,3600,14400]
 }
 variable "dns_zone_id" {
   type             = string
