@@ -1,3 +1,14 @@
+
+# Create random 20-character long strings to use for pre-shared keys
+resource "random_password" "PEER0_PSK" {
+  length           = 20
+  special          = false
+}
+resource "random_password" "PEER1_PSK" {
+  length           = 20
+  special          = false
+}
+
 # Create VPN Tunnels
 resource "google_compute_vpn_tunnel" "VPN_TUN0" {
   name                            = "${var.region}-${var.peer_gateway_name}-tun0"
