@@ -37,7 +37,8 @@ variable "peer0_adv_mode" {
   default = "DEFAULT"
 }
 variable "peer0_adv_prefix" { 
-  type = string 
+  type = string
+  default = ""
 }
 variable "peer0_adv_metric" { 
   type = number 
@@ -70,6 +71,7 @@ variable "peer1_adv_mode" {
 }
 variable "peer1_adv_prefix" { 
   type = string 
+  default = ""
 }
 variable "peer1_adv_metric" { 
   type = number 

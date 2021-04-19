@@ -8,9 +8,9 @@ resource "google_compute_router_peer" "ROUTER_VPN_BGP0" {
   depends_on                      = [ google_compute_router_interface.ROUTER_INTERFACE0 ]
   interface                       = google_compute_router_interface.ROUTER_INTERFACE0.name
   advertise_mode                  = var.peer0_adv_mode
-  #advertised_ip_ranges { 
-  #  range                         = var.peer0_adv_prefix
-  #}
+  advertised_ip_ranges { 
+    range                         = var.peer0_adv_prefix
+  }
   region                          = var.region
   provider                        = google-beta
 }
@@ -23,9 +23,9 @@ resource "google_compute_router_peer" "ROUTER_VPN_BGP1" {
   depends_on                      = [ google_compute_router_interface.ROUTER_INTERFACE1 ]
   interface                       = google_compute_router_interface.ROUTER_INTERFACE1.name
   advertise_mode                  = var.peer1_adv_mode
-  #advertised_ip_ranges { 
-  #  range                         = var.peer1_adv_prefix
-  #}
+  advertised_ip_ranges { 
+    range                         = var.peer1_adv_prefix
+  }
   region                          = var.region
   provider                        = google-beta
 }
