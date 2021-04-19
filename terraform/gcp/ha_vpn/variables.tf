@@ -15,7 +15,7 @@ variable "peer_gateway_description"    {
 # Primary VPN Tunnel
 variable "peer0_vpn_name" {
   type = string
-  default = "${var.peer_gateway_name}-tun0"
+  default = "ha-vpn-tunnel-tun0"
 }
 variable "peer0_public_ip" {
   type = string 
@@ -52,7 +52,7 @@ variable "peer0_adv_metric" {
 # Secondary VPN Tunnel
 variable "peer1_vpn_name" {
   type = string
-  default = "${var.peer_gateway_name}-tun1"
+  default = "ha-vpn-tunnel-tun1"
 }
 variable "peer1_public_ip" { 
   type = string 
