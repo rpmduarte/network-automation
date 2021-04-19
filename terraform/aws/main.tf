@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "j5-org"
-    prefix = "terraform"
+    #prefix = "terraform"
     key    = "terraform/state"
     region = "us-east-2"
   }
