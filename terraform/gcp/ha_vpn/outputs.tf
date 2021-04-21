@@ -1,5 +1,5 @@
 # Output for VPN Gateway
-output vpn_gateway_info { value = var.vpn_gateway_name.*.ip_address }
+output vpn_gateway_info { value = google_compute_ha_vpn_gateway.var.vpn_gateway_name.*.ip_address }
 
 # Outputs for Secondary tunnel and BGP peer
 output tun0_psk { value = random_password.PEER0_PSK.*.result }
