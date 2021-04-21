@@ -1,11 +1,11 @@
 # Output for VPN Gateway
-#output vpn_gateway_info { value = google_compute_ha_vpn_gateway.*.vpn_interfaces.ip_address }
+output vpn_gateway_info { value = var.vpn_gateway_name.ip_address }
 
 # Outputs for Secondary tunnel and BGP peer
-output vpn_tun0_psk { value = random_password.PEER0_PSK.*.result }
-output vpn_tun0_gcp_ip { value = google_compute_router_interface.ROUTER_INTERFACE0.*.ip_range }
+output tun0_psk { value = random_password.PEER0_PSK.*.result }
+output tun0_router_bgp_neighbor_ip { value = google_compute_router_peer.ROUTER_VPN_BGP0.*.ip_address }
 
 # Outputs for Secondary tunnel and BGP peer
-output vpn_tun1_psk { value = random_password.PEER1_PSK.*.result }
-output vpn_tun1_gcp_ip { value = google_compute_router_interface.ROUTER_INTERFACE0.*.ip_range }
+output tun1_psk { value = random_password.PEER1_PSK.*.result }
+output tun1_router_bgp_neighbor_ip { value = google_compute_router_peer.ROUTER_VPN_BGP1.*.ip_address }
 
