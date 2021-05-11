@@ -16,12 +16,14 @@ provider "google-beta" {
 
 module "instance_template" {
   source              = "./instance_template"
+  credentials_file    = var.credentials_file
   project_name        = var.project_name
   regions             = var.regions
 }
 
 module "instance" {
   source              = "./instance"
+  credentials_file    = var.credentials_file
   depends_on          = [module.instance_template]
   project_name        = var.project_name
   vpc_network_name    = var.vpc_network_name
