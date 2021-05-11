@@ -6,17 +6,17 @@ variable "region_names" {
   type             = list(string)
 }
 
-variables "machine_type" {
+variable "machine_type" {
   type             = string
   default          = "f1-micro"
 }
 
-variables "source_image" {
+variable "source_image" {
   type             = string
   default          = "debian-cloud/debian-10"
 }
 
-variables "instace_template_name" {
+variable "instace_template_name" {
   type             = string
   default          = "f1-micro-debian"
 }
