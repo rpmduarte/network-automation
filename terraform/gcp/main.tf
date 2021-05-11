@@ -24,7 +24,7 @@ module "instance" {
   source              = "./instance"
   depends_on          = [module.instance_template]
   project_name        = var.project_name
-  vpc_network_name    = var.network_names
+  vpc_network_name    = var.vpc_network_name
   regions             = var.regions
   network_cidrs       = var.network_cidrs
 }
