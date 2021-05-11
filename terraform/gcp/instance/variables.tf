@@ -2,11 +2,11 @@ variable "project_name" {
   type             = string
 }
 
-variable "network_name" {
+variable "vpc_network_name" {
   type             = string
 }
 
-variable "region_names" {
+variable "regions" {
   type             = list(string)
 }
 
