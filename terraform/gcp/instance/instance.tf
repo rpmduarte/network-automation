@@ -2,7 +2,7 @@
 # Create instance
 resource "google_compute_instance_from_template" "INSTANCE" {
   count                        = length(var.regions)
-  name                         = "${var.network_name}-${var.regions[count.index]}"
+  name                         = "${var.vpc_network_name}-${var.regions[count.index]}"
   #source_instance_template    = google_compute_instance_template.F1_MICRO_DEBIAN.id
   source_instance_template     = local.instance_template_name
   zone                         = "${var.regions[count.index]}-${local.zones_list[0]}"
