@@ -16,15 +16,15 @@ provider "google-beta" {
 
 module "instance_template" {
   source              = "./instance_template"
-  region_names        = var.region_names
+  regions             = var.regions
 }
 
 module "instance" {
   source              = "./instance"
   depends_on          = [module.instance_template]
   project_name        = var.project_name
-  network_name        = var.network_name
-  region_names        = var.region_names
+  vpc_network_name    = var.network_names
+  regions             = var.regions
   network_cidrs       = var.network_cidrs
 }
 

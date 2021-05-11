@@ -1,12 +1,11 @@
 
 # Instance Template
-resource "google_compute_instance_template" "F1_MICRO_DEBIAN" {
-  count                        = length(var.region_names)
-  name                         = local.instance_template_name
-  description                  = local.instance_template_description
-  machine_type                 = local.machine_type
+resource "google_compute_instance_template" "INSTANCE_TEMPLATE" {
+  count                        = length(var.regions)
+  name                         = var.instance_template_name
+  machine_type                 = var.machine_type
   disk {
-    source_image               = local.source_image
+    source_image               = var.source_image
     auto_delete                = true
     boot                       = true
   }
@@ -19,6 +18,6 @@ resource "google_compute_instance_template" "F1_MICRO_DEBIAN" {
   labels                       = { 
      os = "debian"
   }
-  metadata_startup_script      = "sudo apt install -y git python3-pip wget tcpdump telnet dnsutils"
+  metadata_startup_script      = var.startup_script
 }
 
