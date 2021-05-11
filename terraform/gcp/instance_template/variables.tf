@@ -16,7 +16,7 @@ variable "source_image" {
   default          = "debian-cloud/debian-10"
 }
 
-variable "instace_template_name" {
+variable "instance_template_name" {
   type             = string
   default          = "f1-micro-debian"
 }
