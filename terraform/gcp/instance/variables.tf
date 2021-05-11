@@ -23,8 +23,12 @@ variable "instance_network_tags" {
   default          = []
 }
 
+variable "instance_template_name" {
+  type             = string
+  default          = "f1-micro-debian"
+}
+
 locals {
-  instance_template_name   = "f1-micro-debian"
   zones_list               = ["b", "c"]
 }
 
