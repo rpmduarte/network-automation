@@ -3,8 +3,8 @@
 resource "google_compute_instance_from_template" "INSTANCE" {
   count                        = length(var.regions)
   name                         = "${var.vpc_network_name}-${var.regions[count.index]}"
-  source_instance_template    = google_compute_instance_template.INSTANCE_TEMPLATE
-  #source_instance_template     = var.instance_template_name
+  #source_instance_template    = google_compute_instance_template.INSTANCE_TEMPLATE
+  source_instance_template     = var.instance_template_name
   zone                         = "${var.regions[count.index]}-${local.zones_list[0]}"
   network_interface {
     subnetwork                 = "${var.vpc_network_name}-${var.regions[count.index]}"
