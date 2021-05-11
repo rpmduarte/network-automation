@@ -16,6 +16,7 @@ provider "google-beta" {
 
 module "instance_template" {
   source              = "./instance_template"
+  project_name        = var.project_name
   regions             = var.regions
 }
 
