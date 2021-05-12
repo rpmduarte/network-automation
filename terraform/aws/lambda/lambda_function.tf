@@ -5,8 +5,8 @@ resource "aws_lambda_function" "LAMBDA_FUNCTION" {
   function_name    = var.function_name
   role		   = aws_iam_role.LAMBDA_ROLE.arn
   handler          = "${var.function_name}.${var.handler_name}"
-  runtime          = local.runtime
-  memory_size      = 128
+  runtime          = var.runtime
+  memory_size      = var.memsize
   description      = var.lambda_description
 }
 

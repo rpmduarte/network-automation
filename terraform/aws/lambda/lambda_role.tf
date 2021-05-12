@@ -10,6 +10,15 @@ resource "aws_iam_role" "LAMBDA_ROLE" {
       "Principal": { "Service": "lambda.amazonaws.com" },
       "Effect": "Allow",
       "Sid": ""
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
     }
   ]
 }

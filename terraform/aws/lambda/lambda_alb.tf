@@ -1,7 +1,7 @@
 
 # Create Security group for ALB
 resource "aws_security_group" "ALB_SECURITY_GROUP" {
-  name        = "allow-http-https"
+  name        = "allow-http-https-to-${var.lambda_name}"
   vpc_id      = var.vpc_id
   ingress {
     protocol    = "tcp"
@@ -76,7 +76,7 @@ resource "aws_lb_listener" "ALB_LISTENER_HTTPS" {
     target_group_arn         = aws_lb_target_group.LAMBDA_TG.arn
   }
   certificate_arn            = var.cert_arn
-  ssl_policy                 = local.ssl_policy_name
+  ssl_policy                 = var.ssl_policy_name
 }
 
 # Attach additional certs, if given
