@@ -9,7 +9,7 @@ resource "google_compute_forwarding_rule" "FRONTEND" {
   all_ports             = false
   ip_protocol           = "TCP"
   ports                 = [ var.backend_port ]
-  allow_global_access   = true
+  allow_global_access   = var.allow_global_access
   network               = var.vpc_network_name
   subnetwork            = "${var.vpc_network_name}-${var.regions[count.index]}"
   provider              = google-beta

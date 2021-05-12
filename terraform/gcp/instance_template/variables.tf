@@ -15,9 +15,14 @@ variable "machine_type" {
   default          = "f1-micro"
 }
 
-variable "source_image" {
+variable "image_project" {
   type             = string
-  default          = "debian-cloud/debian-10"
+  default          = "debian-cloud"
+}
+
+variable "image_family" {
+  type             = string
+  default          = "debian-10"
 }
 
 variable "instance_template_name" {

@@ -48,6 +48,11 @@ variable "affinity_type" {
   default          = "NONE"
 }  
 
+variable "allow_global_access" {
+  type             = bool
+  default          = false
+}
+
 locals {
   zones_list               = ["b", "c"]
 }
